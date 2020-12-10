@@ -3,11 +3,29 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-var enemyName = ["Roborto", "Amy Andriod", "Robo Truble"];
+var enemyNames = ["Roborto", "Amy Andriod", "Robo Truble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function(enemyName);
+for (var i = 0; i < enemyNames.length; i++) {
+  debugger;
+  fight(enemyNames[i]);
+}
+
+var fight = function(enemyName) {
+while(enemyHealth > 0) {
+
+  var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+
+  if (promptFight=== 'skip' || promptFight === "SKIP") {
+    var confirmSkip = window.confirm(" Are you sure you'd like to quit?");
+    if (confirmSkip) {
+      window.alert(playerName + 'has decided to skip this fight. Goodbye!');
+      playerMoney = playerMoney - 10; 
+      break;
+    }
+  }
+
 
 //REMOVE ENEMY'S HEALTH BY SUBTRACTING THE AMOUNT SET IN THE PLAYERATTACK VARIABLE
 enemyHealth = enemyHealth - playerAttack
@@ -44,6 +62,6 @@ else {
 }
 }
 
-for(var i = 0; i < enemyName.length; i++) {
-  fight(enemyName[i]);
+for(var i = 0; i < enemyNames.length; i++) {
+  fight(enemyNames[i]);
 }
